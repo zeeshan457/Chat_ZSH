@@ -7,3 +7,4 @@ Requirements:
       Front end, React.JS
       Back end, Node.JS and Axios
       Pre trained model, Hugging Face's Transformers
+      Database, MongoDB
