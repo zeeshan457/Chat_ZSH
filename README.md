@@ -3,7 +3,7 @@
 
 Requirements:
 
-   Arhitecture, Hierarchical 
-   Front end, React.JS
-   Back end, Node.JS and Axios
-   Pre trained model, Hugging Face's Transformers
+      Arhitecture, Hierarchical 
+      Front end, React.JS
+      Back end, Node.JS and Axios
+      Pre trained model, Hugging Face's Transformers
