@@ -1,6 +1,6 @@
-package com.example.application.views.chat;
+package com.example.application.Views.chat;
 
-import com.example.application.views.MainLayout;
+import com.example.application.Views.MainLayout;
 import com.vaadin.collaborationengine.CollaborationAvatarGroup;
 import com.vaadin.collaborationengine.CollaborationMessageInput;
 import com.vaadin.collaborationengine.CollaborationMessageList;
@@ -95,12 +95,7 @@ public class ChatView extends HorizontalLayout {
         setSpacing(false);
 
         // UserInfo is used by Collaboration Engine and is used to share details
-        // of users to each other to able collaboration. Replace this with
-        // information about the actual user that is logged, providing a user
-        // identifier, and the user's real name. You can also provide the users
-        // avatar by passing an url to the image as a third parameter, or by
-        // configuring an `ImageProvider` to `avatarGroup`.
-        UserInfo userInfo = new UserInfo(UUID.randomUUID().toString(), "Steve Lange");
+        UserInfo userInfo = new UserInfo(UUID.randomUUID().toString(), "You");
 
         tabs = new Tabs();
         for (ChatInfo chat : chats) {

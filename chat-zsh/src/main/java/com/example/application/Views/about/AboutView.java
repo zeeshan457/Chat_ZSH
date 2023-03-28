@@ -1,6 +1,6 @@
-package com.example.application.views.about;
+package com.example.application.Views.about;
 
-import com.example.application.views.MainLayout;
+import com.example.application.Views.MainLayout;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;

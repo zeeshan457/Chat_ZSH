@@ -1,10 +1,10 @@
-package com.example.application.views;
+package com.example.application.Views;
 
 
 import com.example.application.components.appnav.AppNav;
 import com.example.application.components.appnav.AppNavItem;
-import com.example.application.views.about.AboutView;
-import com.example.application.views.chat.ChatView;
+import com.example.application.Views.about.AboutView;
+import com.example.application.Views.chat.ChatView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
