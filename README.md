@@ -3,9 +3,9 @@
 Details:
 
       Arhitecture, Hierarchical 
-      Front end, React.JS
-      Back end, Node.JS and Axios
-      Pre trained model, Hugging Face's Transformers
+      Front end, Java, Spring boot, and Vaadin.
+      Back end, .....
+      NLP, OpenAI
       Database, MongoDB
       Deployment, .....
       Link, .....
