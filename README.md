@@ -1,4 +1,4 @@
-# Getting Started with the system and information.
+# Getting Started with the system.
 
 Details:
 
