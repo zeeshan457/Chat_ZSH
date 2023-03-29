@@ -38,55 +38,10 @@ import java.util.UUID;
 @RouteAlias(value = "", layout = MainLayout.class)
 public class ChatView extends HorizontalLayout {
 
-    public static class ChatTab extends Tab {
-        private final ChatInfo chatInfo;
-
-        public ChatTab(ChatInfo chatInfo) {
-            this.chatInfo = chatInfo;
-        }
-
-        public ChatInfo getChatInfo() {
-            return chatInfo;
-        }
-    }
-
-    public static class ChatInfo {
-        private String name;
-        private int unread;
-        private Span unreadBadge;
-
-        private ChatInfo(String name, int unread) {
-            this.name = name;
-            this.unread = unread;
-        }
-
-        public void resetUnread() {
-            unread = 0;
-            updateBadge();
-        }
-
-        public void incrementUnread() {
-            unread++;
-            updateBadge();
-        }
-
-        private void updateBadge() {
-            unreadBadge.setText(unread + "");
-            unreadBadge.setVisible(unread != 0);
-        }
-
-        public void setUnreadBadge(Span unreadBadge) {
-            this.unreadBadge = unreadBadge;
-            updateBadge();
-        }
-
-        public String getCollaborationTopic() {
-            return "chat/" + name;
-        }
-    }
-
-    private ChatInfo[] chats = new ChatInfo[]{new ChatInfo("general", 0), new ChatInfo("support", 0),
-            new ChatInfo("casual", 0)};
+    /**
+     * Attributes
+     */
+    private ChatInfo[] chats = new ChatInfo[]{new ChatInfo("Chat", 0), new ChatInfo("Coming soon", 0)};
     private ChatInfo currentChat = chats[0];
     private Tabs tabs;
 
@@ -98,8 +53,9 @@ public class ChatView extends HorizontalLayout {
         UserInfo userInfo = new UserInfo(UUID.randomUUID().toString(), "You");
 
         tabs = new Tabs();
+        // Iterate through the chats
         for (ChatInfo chat : chats) {
-            // Listen for new messages in each chat so we can update the "unread" count
+            // Listen for new messages in each chat, so we can update the "unread" count
             MessageManager mm = new MessageManager(this, userInfo, chat.getCollaborationTopic());
             mm.setMessageHandler(context -> {
                 if (currentChat != chat) {
@@ -112,22 +68,13 @@ public class ChatView extends HorizontalLayout {
         tabs.setOrientation(Orientation.VERTICAL);
         tabs.addClassNames(Flex.GROW, Flex.SHRINK, Overflow.HIDDEN);
 
-        // CollaborationMessageList displays messages that are in a
-        // Collaboration Engine topic. You should give in the user details of
-        // the current user using the component, and a topic Id. Topic id can be
-        // any freeform string. In this template, we have used the format
-        // "chat/#general".
+        // CollaborationMessageList displays messages that are in a specific topic
         CollaborationMessageList list = new CollaborationMessageList(userInfo, currentChat.getCollaborationTopic());
         list.setSizeFull();
 
-        // `CollaborationMessageInput is a textfield and button, to be able to
-        // submit new messages. To avoid having to set the same info into both
-        // the message list and message input, the input takes in the list as an
-        // constructor argument to get the information from there.
+        // `CollaborationMessageInput is a textfield and button, to be able to submit messages.
         CollaborationMessageInput input = new CollaborationMessageInput(list);
         input.setWidthFull();
-
-        // Layouting
 
         VerticalLayout chatContainer = new VerticalLayout();
         chatContainer.addClassNames(Flex.AUTO, Overflow.HIDDEN);
@@ -140,14 +87,10 @@ public class ChatView extends HorizontalLayout {
                 BoxSizing.BORDER);
         H3 channels = new H3("Channels");
         channels.addClassNames(Flex.GROW, Margin.NONE);
-        CollaborationAvatarGroup avatarGroup = new CollaborationAvatarGroup(userInfo, "chat");
-        avatarGroup.setMaxItemsVisible(4);
-        avatarGroup.addClassNames(Width.AUTO);
 
-        header.add(channels, avatarGroup);
-
+        // add
+        header.add(channels);
         side.add(header, tabs);
-
         chatContainer.add(list, input);
         add(chatContainer, side);
         setSizeFull();
@@ -161,18 +104,25 @@ public class ChatView extends HorizontalLayout {
         });
     }
 
+    /**
+     *
+     * Creates a tab for side menu
+     *
+     * @param chat information
+     * @return ChatTab
+     */
     private ChatTab createTab(ChatInfo chat) {
         ChatTab tab = new ChatTab(chat);
         tab.addClassNames(JustifyContent.BETWEEN);
-
         Span badge = new Span();
-        chat.setUnreadBadge(badge);
-        badge.getElement().getThemeList().add("badge small contrast");
-        tab.add(new Span("#" + chat.name), badge);
-
+        tab.add(new Span(chat.name), badge);
         return tab;
     }
 
+    /**
+     * Set details for mobile
+     * @param attachEvent event
+     */
     @Override
     protected void onAttach(AttachEvent attachEvent) {
         Page page = attachEvent.getUI().getPage();
@@ -184,6 +134,10 @@ public class ChatView extends HorizontalLayout {
         });
     }
 
+    /**
+     * Mobile orientation for viewing
+     * @param mobile mobile object
+     */
     private void setMobile(boolean mobile) {
         tabs.setOrientation(mobile ? Orientation.HORIZONTAL : Orientation.VERTICAL);
     }
