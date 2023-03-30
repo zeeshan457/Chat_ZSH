@@ -1,4 +1,4 @@
-package com.example.application.Views.chat;
+package com.example.application.views.chat;
 
 import com.vaadin.flow.component.tabs.Tab;
 

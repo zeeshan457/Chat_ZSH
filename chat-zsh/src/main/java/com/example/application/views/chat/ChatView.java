@@ -1,7 +1,6 @@
-package com.example.application.Views.chat;
+package com.example.application.views.chat;
 
-import com.example.application.Views.MainLayout;
-import com.vaadin.collaborationengine.CollaborationAvatarGroup;
+import com.example.application.views.MainLayout;
 import com.vaadin.collaborationengine.CollaborationMessageInput;
 import com.vaadin.collaborationengine.CollaborationMessageList;
 import com.vaadin.collaborationengine.MessageManager;
@@ -14,7 +13,6 @@ import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.page.Page;
-import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.tabs.Tabs.Orientation;
 import com.vaadin.flow.router.PageTitle;
@@ -33,7 +31,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility.Padding;
 import com.vaadin.flow.theme.lumo.LumoUtility.Width;
 import java.util.UUID;
 
-@PageTitle("Chat")
+@PageTitle("ChatZSH")
 @Route(value = "Chat", layout = MainLayout.class)
 @RouteAlias(value = "", layout = MainLayout.class)
 public class ChatView extends HorizontalLayout {
@@ -72,7 +70,7 @@ public class ChatView extends HorizontalLayout {
         CollaborationMessageList list = new CollaborationMessageList(userInfo, currentChat.getCollaborationTopic());
         list.setSizeFull();
 
-        // `CollaborationMessageInput is a textfield and button, to be able to submit messages.
+        // CollaborationMessageInput is a textfield and button, to be able to submit messages.
         CollaborationMessageInput input = new CollaborationMessageInput(list);
         input.setWidthFull();
 
@@ -85,7 +83,7 @@ public class ChatView extends HorizontalLayout {
         Header header = new Header();
         header.addClassNames(Display.FLEX, FlexDirection.ROW, Width.FULL, AlignItems.CENTER, Padding.MEDIUM,
                 BoxSizing.BORDER);
-        H3 channels = new H3("Channels");
+        H3 channels = new H3("MODE");
         channels.addClassNames(Flex.GROW, Margin.NONE);
 
         // add
