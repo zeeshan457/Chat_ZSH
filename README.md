@@ -12,7 +12,7 @@ Details:
       
 Functions:
 
-      Login and Register
+      Login and Register (soon)
       Ask questions
 
 # chat_ZSH
