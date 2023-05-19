@@ -43,6 +43,9 @@
         </dependencies>
     </dependencyManagement>
 
+
+<!--  define here  -->
+
     <dependencies>
         <dependency>
             <groupId>com.vaadin</groupId>
@@ -58,7 +61,6 @@
             <artifactId>line-awesome</artifactId>
             <version>1.1.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>

@@ -1,5 +1,6 @@
 package com.example.application.views.chat;
 
+import com.example.application.data.NLP.NLP_Algorithm;
 import com.example.application.views.MainLayout;
 import com.vaadin.collaborationengine.CollaborationMessageInput;
 import com.vaadin.collaborationengine.CollaborationMessageList;
@@ -40,6 +41,7 @@ public class ChatView extends HorizontalLayout {
      * Attributes
      */
     private ChatInfo[] chats = new ChatInfo[]{new ChatInfo("Chat", 0), new ChatInfo("Coming soon", 0)};
+    private NLP_Algorithm nlp = new NLP_Algorithm();
     private ChatInfo currentChat = chats[0];
     private Tabs tabs;
 
@@ -117,10 +119,29 @@ public class ChatView extends HorizontalLayout {
         return tab;
     }
 
-    /**
-     * Set details for mobile
-     * @param attachEvent event
-     */
+//    protected void sendMessage(String message) {
+//        try {
+//            // Generate a response to the user message
+//            String response = nlp.generateResponse(message);
+//
+//            // Send the response to the CollaborationMessageList
+//            super.sendMessage(response);
+//        } catch (ApiException e) {
+//            // Handle API errors
+//            e.printStackTrace();
+//        }
+//};
+//input.setWidthFull();
+
+
+
+
+
+
+/**
+ * Set details for mobile
+ * @param attachEvent event
+ */
     @Override
     protected void onAttach(AttachEvent attachEvent) {
         Page page = attachEvent.getUI().getPage();
